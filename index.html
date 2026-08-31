@@ -1,0 +1,345 @@
+<title>Chris Mear</title>
+<meta name="description" content="Landing page concept for thechrismear.com, built on the navy-and-amber identity from the brand playbook.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14181F;
+    --ink-2: #232A3C;
+    --paper: #FBFBF9;
+    --paper-2: #EEF0F4;
+    --line: #DBDFE6;
+    --muted: #5B6478;
+    --accent: #C97C1B;      /* amber, deepened for AA text contrast on paper */
+    --accent-bright: #F2A93B; /* amber, for dark surfaces */
+    --accent-blue: #35538F;   /* quiet nod to the site's existing blue accent */
+    --on-dark: #EEF0F4;
+    --on-dark-muted: #A9AFC0;
+    --max: 1080px;
+    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-body: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;text-wrap:balance;}
+  p{margin:0;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.75rem;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  .eyebrow.on-dark{color:var(--accent-bright);}
+  a.link-quiet{
+    color:var(--accent-blue);
+    text-decoration-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+    text-underline-offset:3px;
+  }
+  a.link-quiet:hover{ text-decoration-color: var(--accent-blue); }
+  :focus-visible{ outline:2px solid var(--accent-blue); outline-offset:3px; }
+
+  /* ---------- header ---------- */
+  header{
+    padding:1.5rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+  .wordmark{font-family:var(--font-display);font-size:1.25rem;font-weight:600;letter-spacing:.01em;}
+  .header-nav{display:flex;gap:1.6rem;font-family:var(--font-mono);font-size:.82rem;}
+  .header-nav a{text-decoration:none;color:var(--muted);}
+  .header-nav a:hover{color:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--on-dark);
+    overflow:hidden;
+    padding:5.5rem 0 5rem;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--on-dark) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--on-dark) 6%, transparent) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 70% 60% at 78% 30%, black, transparent 72%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 3.8rem);
+    line-height:1.12;
+    max-width:15ch;
+    margin-top:1.1rem;
+  }
+  .hero h1 em{ color:var(--accent-bright); font-style:normal; }
+  .hero .sub{
+    margin-top:1.4rem;
+    max-width:56ch;
+    font-size:1.09rem;
+    color:var(--on-dark-muted);
+  }
+  .hero .ctas{ margin-top:2.2rem; display:flex; gap:.9rem; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:.92rem;
+    padding:.72rem 1.35rem;
+    border-radius:3px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--accent-bright); color:var(--ink); }
+  .btn-primary:hover{ background:#ffbf5e; }
+  .btn-ghost{ border-color: color-mix(in srgb, var(--on-dark) 30%, transparent); color:var(--on-dark); }
+  .btn-ghost:hover{ border-color:var(--on-dark); }
+  .btn svg{width:16px;height:16px;flex:none;}
+
+  /* ---------- proof strip ---------- */
+  .proof{ padding:3.6rem 0; border-bottom:1px solid var(--line); }
+  .proof blockquote{
+    margin:.9rem 0 0;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:clamp(1.25rem, 2.6vw, 1.6rem);
+    line-height:1.5;
+    max-width:42ch;
+    color:var(--ink);
+  }
+  .proof cite{
+    display:block;
+    margin-top:1rem;
+    font-family:var(--font-mono);
+    font-style:normal;
+    font-size:.78rem;
+    color:var(--muted);
+  }
+
+  /* ---------- pillars (manifest list, not cards) ---------- */
+  .pillars{ padding:4.5rem 0 3.5rem; }
+  .pillars h2{ font-size:clamp(1.6rem,3vw,2.1rem); max-width:20ch; }
+  .pillars .lede{ margin-top:.85rem; max-width:52ch; color:var(--muted); }
+  .manifest{ margin-top:2.6rem; border-top:1px solid var(--line); }
+  .m-row{
+    display:grid;
+    grid-template-columns: 9rem 1fr 2fr;
+    gap:1.5rem;
+    padding:1.5rem 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .m-tag{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--accent);
+    padding-top:.2rem;
+  }
+  .m-title{ font-family:var(--font-display); font-size:1.28rem; font-weight:600; }
+  .m-body{ color:var(--muted); font-size:.96rem; }
+  @media (max-width: 720px){
+    .m-row{ grid-template-columns:1fr; gap:.4rem; }
+  }
+
+  /* ---------- platforms ---------- */
+  .platforms{ background:var(--paper-2); padding:3.6rem 0; }
+  .platforms h2{ font-size:1.15rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.08em; font-weight:500; color:var(--muted); }
+  .plat-row{
+    margin-top:1.8rem;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .plat{
+    background:var(--paper-2);
+    padding:1.6rem 1.4rem;
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+    transition:background .15s ease;
+  }
+  .plat:hover{ background:var(--paper); }
+  .plat svg{ width:22px; height:22px; color:var(--ink); }
+  .plat .p-name{ font-weight:600; font-size:.95rem; }
+  .plat .p-handle{ font-family:var(--font-mono); font-size:.78rem; color:var(--muted); }
+  @media (max-width: 720px){
+    .plat-row{ grid-template-columns:repeat(2,1fr); }
+  }
+
+  /* ---------- about ---------- */
+  .about{ padding:4.5rem 0; }
+  .about-grid{ display:grid; grid-template-columns: 1.1fr 1.4fr; gap:3rem; }
+  .about h2{ font-size:clamp(1.5rem,2.8vw,1.9rem); }
+  .about .role{ margin-top:.9rem; font-family:var(--font-mono); font-size:.82rem; color:var(--muted); line-height:1.7; }
+  .about p{ color:var(--muted); font-size:1rem; }
+  .about p + p{ margin-top:1rem; }
+  @media (max-width: 780px){ .about-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- footer / contact ---------- */
+  footer{ background:var(--ink); color:var(--on-dark); padding:3.6rem 0 2.4rem; }
+  .footer-top{ display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap; align-items:flex-end; }
+  footer h2{ color:var(--on-dark); font-size:clamp(1.5rem,3vw,2rem); max-width:16ch; }
+  footer .footer-top p{ color:var(--on-dark-muted); margin-top:.7rem; max-width:40ch; }
+  footer .bottom{
+    margin-top:2.6rem; padding-top:1.6rem;
+    border-top:1px solid color-mix(in srgb, var(--on-dark) 18%, transparent);
+    display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+    font-family:var(--font-mono); font-size:.76rem; color:var(--on-dark-muted);
+  }
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="wordmark">Chris Mear</div>
+    <nav class="header-nav">
+      <a href="#pillars">What I write about</a>
+      <a href="#platforms">Find me</a>
+      <a href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow on-dark">Systems, applied</span>
+    <h1>I turn other people's frameworks into systems you can <em>actually run your life on.</em></h1>
+    <p class="sub">Psychology, behavioural economics, personal finance — and warehouse logistics. Same instinct, five subjects. Weekly, on Substack.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://thechrismear.substack.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 6.6H2V4.4h20zM2 9.7v10.9l10-5.4 10 5.4V9.7z"/></svg>
+        Read the newsletter
+      </a>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@thechrismear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2c-.25-1-1-1.7-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5c-1 .3-1.75 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.25 1 1 1.7 2 2 1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5c1-.3 1.75-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.3V8.7l5.6 3.3z"/></svg>
+        Watch on YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <span class="eyebrow">Said, not staged</span>
+    <blockquote>&ldquo;By removing willpower from the equation and letting systems do the work, I've found a way to make progress without the daily mental load.&rdquo;</blockquote>
+    <cite>— from a YouTube video description, Aug 2026</cite>
+  </div>
+</section>
+
+<section class="pillars" id="pillars">
+  <div class="wrap">
+    <span class="eyebrow">What I write about</span>
+    <h2>Five threads, ranked by what's actually worked</h2>
+    <p class="lede">Not an even split. Some of this is proven across two platforms; one of it is a door that's still open.</p>
+
+    <div class="manifest">
+      <div class="m-row">
+        <div class="m-tag">Proven — both platforms</div>
+        <div class="m-title">Money &amp; Systems</div>
+        <div class="m-body">Budgeting, debt, and the automation instinct aimed at personal finance. My best-performing work on every channel.</div>
+      </div>
+      <div class="m-row">
+        <div class="m-tag">Proven — the trunk</div>
+        <div class="m-title">Frameworks for Living</div>
+        <div class="m-body">One borrowed idea — a psychology model, a bit of behavioural economics — run through one real dilemma. Every week.</div>
+      </div>
+      <div class="m-row">
+        <div class="m-tag">Proven — personal</div>
+        <div class="m-title">Personal Narrative</div>
+        <div class="m-body">Sobriety, relationships, the interests I lean into instead of hiding. The part that makes the rest sound like a person.</div>
+      </div>
+      <div class="m-row">
+        <div class="m-tag">Dormant</div>
+        <div class="m-title">Fitness &amp; Training</div>
+        <div class="m-body">Where I started. Coming back eventually — as a systems story, not a vlog.</div>
+      </div>
+      <div class="m-row">
+        <div class="m-tag">The open door</div>
+        <div class="m-title">Live Events &amp; Ops</div>
+        <div class="m-body">My actual day job — running the systems behind live shows. Rarely written about yet. That's changing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="platforms" id="platforms">
+  <div class="wrap">
+    <h2>Find me</h2>
+    <div class="plat-row">
+      <a class="plat" href="https://thechrismear.substack.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 6.6H2V4.4h20zM2 9.7v10.9l10-5.4 10 5.4V9.7z"/></svg>
+        <span class="p-name">Substack</span>
+        <span class="p-handle">The weekly essay</span>
+      </a>
+      <a class="plat" href="https://www.youtube.com/@thechrismear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2c-.25-1-1-1.7-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5c-1 .3-1.75 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.25 1 1 1.7 2 2 1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5c1-.3 1.75-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.3V8.7l5.6 3.3z"/></svg>
+        <span class="p-name">YouTube</span>
+        <span class="p-handle">@thechrismear</span>
+      </a>
+      <a class="plat" href="https://www.instagram.com/thechrismear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        <span class="p-name">Instagram</span>
+        <span class="p-handle">@thechrismear</span>
+      </a>
+      <a class="plat" href="https://www.linkedin.com/in/thechrismear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.05-1.9-3.05-1.9 0-2.2 1.44-2.2 2.95V21H9z"/></svg>
+        <span class="p-name">LinkedIn</span>
+        <span class="p-handle">in/thechrismear</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>Who's writing this</h2>
+      <div class="role">Systems Manager, Pearce Hire Ltd<br>Freelance Production Technician, live events<br>Peterborough, UK</div>
+    </div>
+    <div>
+      <p>By day, I keep a live-events hire company's systems running — the software, the warehouse processes, the compliance paperwork nobody sees until it matters.</p>
+      <p>By week, I write about the same instinct pointed at ordinary life: money, habits, identity, the decisions that are harder to undo than they look. The subject changes. The way I think about it doesn't.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h2>Have a system worth writing about? Or want help with one?</h2>
+        <p>For speaking, consulting, or just to say the framework worked (or didn't).</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:hello@thechrismear.com">Get in touch</a>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Chris Mear</span>
+      <span>thechrismear.com</span>
+    </div>
+  </div>
+</footer>
