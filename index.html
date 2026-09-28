@@ -1,345 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chris Mear</title>
-<meta name="description" content="Landing page concept for thechrismear.com, built on the navy-and-amber identity from the brand playbook.">
+<meta name="description" content="Chris Mear — Systems, applied. Psychology, behavioural economics, personal finance, and warehouse logistics, run through the same instinct.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink: #14181F;
-    --ink-2: #232A3C;
-    --paper: #FBFBF9;
-    --paper-2: #EEF0F4;
-    --line: #DBDFE6;
-    --muted: #5B6478;
-    --accent: #C97C1B;      /* amber, deepened for AA text contrast on paper */
-    --accent-bright: #F2A93B; /* amber, for dark surfaces */
-    --accent-blue: #35538F;   /* quiet nod to the site's existing blue accent */
-    --on-dark: #EEF0F4;
-    --on-dark-muted: #A9AFC0;
-    --max: 1080px;
-    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
-    --font-body: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
-    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  :root {
+    --navy: #1E2A44;
+    --amber: #C17817;
+    --cream: #F6F1E7;
+    --ink: #211D18;
+    --muted: #6B6357;
+    --hairline: #DAD2C0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Public Sans', sans-serif;
+  }
+  a { text-decoration: none; color: inherit; }
+  ::selection { background: var(--amber); color: var(--cream); }
+
+  .wrap { max-width: 1440px; margin: 0 auto; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 64px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  header .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+  }
+  header nav { display: flex; gap: 40px; font-size: 14px; letter-spacing: 0.02em; }
+  header nav a { border-bottom: 1px solid transparent; }
+  header nav a:hover { border-bottom-color: var(--ink); }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+    padding: 96px 64px 88px;
+    align-items: end;
+  }
+  .hero .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.08;
+    margin: 0 0 28px;
+    max-width: 640px;
+    color: var(--navy);
+  }
+  .hero h1 em { font-style: italic; color: var(--amber); }
+  .hero p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 460px;
+    margin: 0 0 36px;
+  }
+  .hero .links { display: flex; gap: 28px; align-items: center; }
+  .hero .links .primary {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    color: var(--navy);
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--navy);
+  }
+  .hero .links .secondary {
+    font-size: 15px;
+    color: var(--muted);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero .aside {
+    border-left: 1px solid var(--hairline);
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .hero .aside .num {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    line-height: 0.9;
+    color: var(--navy);
+  }
+  .hero .aside .cap {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 220px;
   }
 
-  *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--font-body);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+  .quote-section { padding: 20px 64px 100px; }
+  .quote-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    border-top: 1px solid var(--hairline);
+    padding-top: 48px;
   }
-  img{max-width:100%;}
-  a{color:inherit;}
-  h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;text-wrap:balance;}
-  p{margin:0;}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.75rem;}
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:.72rem;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-    color:var(--accent);
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    line-height: 0.5;
+    color: var(--amber);
+    margin-bottom: 8px;
   }
-  .eyebrow.on-dark{color:var(--accent-bright);}
-  a.link-quiet{
-    color:var(--accent-blue);
-    text-decoration-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
-    text-underline-offset:3px;
+  blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.45;
+    color: var(--navy);
+    margin: 0 0 20px;
+    max-width: 640px;
   }
-  a.link-quiet:hover{ text-decoration-color: var(--accent-blue); }
-  :focus-visible{ outline:2px solid var(--accent-blue); outline-offset:3px; }
-
-  /* ---------- header ---------- */
-  header{
-    padding:1.5rem 0;
-    border-bottom:1px solid var(--line);
-  }
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
-  .wordmark{font-family:var(--font-display);font-size:1.25rem;font-weight:600;letter-spacing:.01em;}
-  .header-nav{display:flex;gap:1.6rem;font-family:var(--font-mono);font-size:.82rem;}
-  .header-nav a{text-decoration:none;color:var(--muted);}
-  .header-nav a:hover{color:var(--ink);}
-
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;
-    background:var(--ink);
-    color:var(--on-dark);
-    overflow:hidden;
-    padding:5.5rem 0 5rem;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(color-mix(in srgb, var(--on-dark) 6%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--on-dark) 6%, transparent) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: radial-gradient(ellipse 70% 60% at 78% 30%, black, transparent 72%);
-    pointer-events:none;
-  }
-  .hero-inner{position:relative;}
-  .hero h1{
-    font-size:clamp(2.4rem, 5.4vw, 3.8rem);
-    line-height:1.12;
-    max-width:15ch;
-    margin-top:1.1rem;
-  }
-  .hero h1 em{ color:var(--accent-bright); font-style:normal; }
-  .hero .sub{
-    margin-top:1.4rem;
-    max-width:56ch;
-    font-size:1.09rem;
-    color:var(--on-dark-muted);
-  }
-  .hero .ctas{ margin-top:2.2rem; display:flex; gap:.9rem; flex-wrap:wrap; }
-  .btn{
-    font-family:var(--font-body);
-    font-weight:600;
-    font-size:.92rem;
-    padding:.72rem 1.35rem;
-    border-radius:3px;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    border:1px solid transparent;
-  }
-  .btn-primary{ background:var(--accent-bright); color:var(--ink); }
-  .btn-primary:hover{ background:#ffbf5e; }
-  .btn-ghost{ border-color: color-mix(in srgb, var(--on-dark) 30%, transparent); color:var(--on-dark); }
-  .btn-ghost:hover{ border-color:var(--on-dark); }
-  .btn svg{width:16px;height:16px;flex:none;}
-
-  /* ---------- proof strip ---------- */
-  .proof{ padding:3.6rem 0; border-bottom:1px solid var(--line); }
-  .proof blockquote{
-    margin:.9rem 0 0;
-    font-family:var(--font-display);
-    font-style:italic;
-    font-size:clamp(1.25rem, 2.6vw, 1.6rem);
-    line-height:1.5;
-    max-width:42ch;
-    color:var(--ink);
-  }
-  .proof cite{
-    display:block;
-    margin-top:1rem;
-    font-family:var(--font-mono);
-    font-style:normal;
-    font-size:.78rem;
-    color:var(--muted);
+  .quote-cite {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  /* ---------- pillars (manifest list, not cards) ---------- */
-  .pillars{ padding:4.5rem 0 3.5rem; }
-  .pillars h2{ font-size:clamp(1.6rem,3vw,2.1rem); max-width:20ch; }
-  .pillars .lede{ margin-top:.85rem; max-width:52ch; color:var(--muted); }
-  .manifest{ margin-top:2.6rem; border-top:1px solid var(--line); }
-  .m-row{
-    display:grid;
-    grid-template-columns: 9rem 1fr 2fr;
-    gap:1.5rem;
-    padding:1.5rem 0;
-    border-bottom:1px solid var(--line);
-    align-items:baseline;
+  #pillars { padding: 0 64px 100px; }
+  .pillars-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 44px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 48px;
   }
-  .m-tag{
-    font-family:var(--font-mono);
-    font-size:.68rem;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--accent);
-    padding-top:.2rem;
+  .pillars-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 32px;
+    margin: 0;
+    color: var(--navy);
   }
-  .m-title{ font-family:var(--font-display); font-size:1.28rem; font-weight:600; }
-  .m-body{ color:var(--muted); font-size:.96rem; }
-  @media (max-width: 720px){
-    .m-row{ grid-template-columns:1fr; gap:.4rem; }
+  .pillars-head .note {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 220px;
+    text-align: right;
   }
 
-  /* ---------- platforms ---------- */
-  .platforms{ background:var(--paper-2); padding:3.6rem 0; }
-  .platforms h2{ font-size:1.15rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.08em; font-weight:500; color:var(--muted); }
-  .plat-row{
-    margin-top:1.8rem;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
+  .pillar-feature {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 40px;
+    max-width: 620px;
   }
-  .plat{
-    background:var(--paper-2);
-    padding:1.6rem 1.4rem;
-    text-decoration:none;
-    color:var(--ink);
-    display:flex;
-    flex-direction:column;
-    gap:.6rem;
-    transition:background .15s ease;
+  .pillar-tag {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
   }
-  .plat:hover{ background:var(--paper); }
-  .plat svg{ width:22px; height:22px; color:var(--ink); }
-  .plat .p-name{ font-weight:600; font-size:.95rem; }
-  .plat .p-handle{ font-family:var(--font-mono); font-size:.78rem; color:var(--muted); }
-  @media (max-width: 720px){
-    .plat-row{ grid-template-columns:repeat(2,1fr); }
+  .pillar-feature h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0 0 14px;
+    color: var(--navy);
+  }
+  .pillar-feature p { font-size: 16px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  .pillars-mid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 32px;
+  }
+  .pillars-mid h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 12px;
+    color: var(--navy);
+  }
+  .pillars-mid p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  .pillars-low {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .pillars-low .tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pillars-low .name { color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+
+  #platforms { padding: 0 64px 100px; }
+  #platforms h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 8px;
+    color: var(--navy);
+    border-top: 1px solid var(--hairline);
+    padding-top: 48px;
+  }
+  .platform-list { margin-top: 24px; }
+  .platform-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink);
+  }
+  .platform-row .name { font-family: 'Fraunces', serif; font-size: 19px; }
+  .platform-row .handle { font-size: 14px; color: var(--muted); }
+
+  .bio { padding: 0 64px 100px; border-top: 1px solid var(--hairline); padding-top: 48px; }
+  .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; }
+  .bio-grid h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 16px;
+    color: var(--navy);
+  }
+  .bio-role { font-size: 15px; line-height: 1.8; color: var(--ink); }
+  .bio-role + .bio-role { margin-top: 14px; }
+  .bio-location { font-size: 14px; color: var(--muted); margin-top: 14px; }
+  .bio-text p { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 560px; margin: 0 0 16px; }
+  .bio-text p:last-child { margin-bottom: 0; }
+
+  .contact {
+    padding: 64px 64px 56px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 40px;
+  }
+  .contact h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px; margin: 0 0 10px; color: var(--navy); }
+  .contact p { font-size: 15px; color: var(--muted); margin: 0; }
+  .contact .cta {
+    flex-shrink: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--cream);
+    background: var(--navy);
+    padding: 14px 28px;
+    display: inline-block;
   }
 
-  /* ---------- about ---------- */
-  .about{ padding:4.5rem 0; }
-  .about-grid{ display:grid; grid-template-columns: 1.1fr 1.4fr; gap:3rem; }
-  .about h2{ font-size:clamp(1.5rem,2.8vw,1.9rem); }
-  .about .role{ margin-top:.9rem; font-family:var(--font-mono); font-size:.82rem; color:var(--muted); line-height:1.7; }
-  .about p{ color:var(--muted); font-size:1rem; }
-  .about p + p{ margin-top:1rem; }
-  @media (max-width: 780px){ .about-grid{ grid-template-columns:1fr; } }
+  footer {
+    padding: 24px 64px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
+  }
 
-  /* ---------- footer / contact ---------- */
-  footer{ background:var(--ink); color:var(--on-dark); padding:3.6rem 0 2.4rem; }
-  .footer-top{ display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap; align-items:flex-end; }
-  footer h2{ color:var(--on-dark); font-size:clamp(1.5rem,3vw,2rem); max-width:16ch; }
-  footer .footer-top p{ color:var(--on-dark-muted); margin-top:.7rem; max-width:40ch; }
-  footer .bottom{
-    margin-top:2.6rem; padding-top:1.6rem;
-    border-top:1px solid color-mix(in srgb, var(--on-dark) 18%, transparent);
-    display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-    font-family:var(--font-mono); font-size:.76rem; color:var(--on-dark-muted);
+  @media (max-width: 860px) {
+    header, .hero, #pillars, #platforms, .bio, .contact, footer, .quote-section { padding-left: 24px; padding-right: 24px; }
+    .hero { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 48px; }
+    .hero .aside { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .hero h1 { font-size: 38px; }
+    .pillars-mid, .pillars-low, .bio-grid { grid-template-columns: 1fr; gap: 32px; }
+    header nav { gap: 20px; font-size: 13px; }
+    .contact { flex-direction: column; align-items: start; gap: 20px; }
   }
 </style>
+</head>
+<body>
 
 <header>
-  <div class="wrap">
-    <div class="wordmark">Chris Mear</div>
-    <nav class="header-nav">
-      <a href="#pillars">What I write about</a>
-      <a href="#platforms">Find me</a>
-      <a href="#contact">Get in touch</a>
-    </nav>
-  </div>
+  <div class="logo">Chris Mear</div>
+  <nav>
+    <a href="#pillars">What I write about</a>
+    <a href="#platforms">Find me</a>
+    <a href="#contact">Get in touch</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="wrap hero-inner">
-    <span class="eyebrow on-dark">Systems, applied</span>
+  <div>
+    <div class="eyebrow">Systems, applied</div>
     <h1>I turn other people's frameworks into systems you can <em>actually run your life on.</em></h1>
-    <p class="sub">Psychology, behavioural economics, personal finance — and warehouse logistics. Same instinct, five subjects. Weekly, on Substack.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="https://thechrismear.substack.com" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 6.6H2V4.4h20zM2 9.7v10.9l10-5.4 10 5.4V9.7z"/></svg>
-        Read the newsletter
-      </a>
-      <a class="btn btn-ghost" href="https://www.youtube.com/@thechrismear" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2c-.25-1-1-1.7-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5c-1 .3-1.75 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.25 1 1 1.7 2 2 1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5c1-.3 1.75-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.3V8.7l5.6 3.3z"/></svg>
-        Watch on YouTube
-      </a>
+    <p>Psychology, behavioural economics, personal finance — and warehouse logistics. Same instinct, five subjects. Weekly, on Substack.</p>
+    <div class="links">
+      <a class="primary" href="https://thechrismear.substack.com">Read the newsletter →</a>
+      <a class="secondary" href="https://www.youtube.com/@thechrismear">Watch on YouTube</a>
     </div>
   </div>
-</section>
-
-<section class="proof">
-  <div class="wrap">
-    <span class="eyebrow">Said, not staged</span>
-    <blockquote>&ldquo;By removing willpower from the equation and letting systems do the work, I've found a way to make progress without the daily mental load.&rdquo;</blockquote>
-    <cite>— from a YouTube video description, Aug 2026</cite>
+  <div class="aside">
+    <div class="num">5</div>
+    <div class="cap">threads I write across, ranked below by what's actually worked</div>
   </div>
 </section>
 
-<section class="pillars" id="pillars">
-  <div class="wrap">
-    <span class="eyebrow">What I write about</span>
+<section class="quote-section">
+  <div class="quote-inner">
+    <div class="quote-mark">&ldquo;</div>
+    <blockquote>By removing willpower from the equation and letting systems do the work, I've found a way to make progress without the daily mental load.</blockquote>
+    <div class="quote-cite">— from a YouTube video description, Aug 2026 · said, not staged</div>
+  </div>
+</section>
+
+<section id="pillars">
+  <div class="pillars-head">
     <h2>Five threads, ranked by what's actually worked</h2>
-    <p class="lede">Not an even split. Some of this is proven across two platforms; one of it is a door that's still open.</p>
+    <div class="note">Not an even split. Some of this is proven across two platforms; one of it is a door that's still open.</div>
+  </div>
 
-    <div class="manifest">
-      <div class="m-row">
-        <div class="m-tag">Proven — both platforms</div>
-        <div class="m-title">Money &amp; Systems</div>
-        <div class="m-body">Budgeting, debt, and the automation instinct aimed at personal finance. My best-performing work on every channel.</div>
-      </div>
-      <div class="m-row">
-        <div class="m-tag">Proven — the trunk</div>
-        <div class="m-title">Frameworks for Living</div>
-        <div class="m-body">One borrowed idea — a psychology model, a bit of behavioural economics — run through one real dilemma. Every week.</div>
-      </div>
-      <div class="m-row">
-        <div class="m-tag">Proven — personal</div>
-        <div class="m-title">Personal Narrative</div>
-        <div class="m-body">Sobriety, relationships, the interests I lean into instead of hiding. The part that makes the rest sound like a person.</div>
-      </div>
-      <div class="m-row">
-        <div class="m-tag">Dormant</div>
-        <div class="m-title">Fitness &amp; Training</div>
-        <div class="m-body">Where I started. Coming back eventually — as a systems story, not a vlog.</div>
-      </div>
-      <div class="m-row">
-        <div class="m-tag">The open door</div>
-        <div class="m-title">Live Events &amp; Ops</div>
-        <div class="m-body">My actual day job — running the systems behind live shows. Rarely written about yet. That's changing.</div>
-      </div>
+  <div class="pillar-feature">
+    <div class="pillar-tag">Proven — both platforms</div>
+    <h3>Money &amp; Systems</h3>
+    <p>Budgeting, debt, and the automation instinct aimed at personal finance. My best-performing work on every channel.</p>
+  </div>
+
+  <div class="pillars-mid">
+    <div>
+      <div class="pillar-tag">Proven — the trunk</div>
+      <h3>Frameworks for Living</h3>
+      <p>One borrowed idea — a psychology model, a bit of behavioural economics — run through one real dilemma. Every week.</p>
+    </div>
+    <div>
+      <div class="pillar-tag">Proven — personal</div>
+      <h3>Personal Narrative</h3>
+      <p>Sobriety, relationships, the interests I lean into instead of hiding. The part that makes the rest sound like a person.</p>
+    </div>
+  </div>
+
+  <div class="pillars-low">
+    <div>
+      <div class="tag">Dormant</div>
+      <div class="name">Fitness &amp; Training</div>
+      <div>Where I started. Coming back eventually — as a systems story, not a vlog.</div>
+    </div>
+    <div>
+      <div class="tag">The open door</div>
+      <div class="name">Live Events &amp; Ops</div>
+      <div>My actual day job — running the systems behind live shows. Rarely written about yet. That's changing.</div>
     </div>
   </div>
 </section>
 
-<section class="platforms" id="platforms">
-  <div class="wrap">
-    <h2>Find me</h2>
-    <div class="plat-row">
-      <a class="plat" href="https://thechrismear.substack.com" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 6.6H2V4.4h20zM2 9.7v10.9l10-5.4 10 5.4V9.7z"/></svg>
-        <span class="p-name">Substack</span>
-        <span class="p-handle">The weekly essay</span>
-      </a>
-      <a class="plat" href="https://www.youtube.com/@thechrismear" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2c-.25-1-1-1.7-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5c-1 .3-1.75 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.25 1 1 1.7 2 2 1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5c1-.3 1.75-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.3V8.7l5.6 3.3z"/></svg>
-        <span class="p-name">YouTube</span>
-        <span class="p-handle">@thechrismear</span>
-      </a>
-      <a class="plat" href="https://www.instagram.com/thechrismear" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-        <span class="p-name">Instagram</span>
-        <span class="p-handle">@thechrismear</span>
-      </a>
-      <a class="plat" href="https://www.linkedin.com/in/thechrismear" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.05-1.9-3.05-1.9 0-2.2 1.44-2.2 2.95V21H9z"/></svg>
-        <span class="p-name">LinkedIn</span>
-        <span class="p-handle">in/thechrismear</span>
-      </a>
-    </div>
+<section id="platforms">
+  <h2>Find me</h2>
+  <div class="platform-list">
+    <a class="platform-row" href="https://thechrismear.substack.com">
+      <span class="name">Substack</span>
+      <span class="handle">the weekly essay →</span>
+    </a>
+    <a class="platform-row" href="https://www.youtube.com/@thechrismear">
+      <span class="name">YouTube</span>
+      <span class="handle">@thechrismear →</span>
+    </a>
+    <a class="platform-row" href="https://www.instagram.com/thechrismear">
+      <span class="name">Instagram</span>
+      <span class="handle">@thechrismear →</span>
+    </a>
+    <a class="platform-row" href="https://www.linkedin.com/in/thechrismear">
+      <span class="name">LinkedIn</span>
+      <span class="handle">in/thechrismear →</span>
+    </a>
   </div>
 </section>
 
-<section class="about">
-  <div class="wrap about-grid">
+<section class="bio">
+  <div class="bio-grid">
     <div>
       <h2>Who's writing this</h2>
-      <div class="role">Systems Manager, Pearce Hire Ltd<br>Freelance Production Technician, live events<br>Peterborough, UK</div>
+      <div class="bio-role">Systems Manager<br>Pearce Hire Ltd</div>
+      <div class="bio-role">Freelance Production<br>Technician, live events</div>
+      <div class="bio-location">Peterborough, UK</div>
     </div>
-    <div>
+    <div class="bio-text">
       <p>By day, I keep a live-events hire company's systems running — the software, the warehouse processes, the compliance paperwork nobody sees until it matters.</p>
       <p>By week, I write about the same instinct pointed at ordinary life: money, habits, identity, the decisions that are harder to undo than they look. The subject changes. The way I think about it doesn't.</p>
     </div>
   </div>
 </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <h2>Have a system worth writing about? Or want help with one?</h2>
-        <p>For speaking, consulting, or just to say the framework worked (or didn't).</p>
-      </div>
-      <a class="btn btn-primary" href="mailto:hello@thechrismear.com">Get in touch</a>
-    </div>
-    <div class="bottom">
-      <span>© 2026 Chris Mear</span>
-      <span>thechrismear.com</span>
-    </div>
+<section id="contact" class="contact">
+  <div>
+    <h2>Have a system worth writing about? Or want help with one?</h2>
+    <p>For speaking, consulting, or just to say the framework worked (or didn't).</p>
   </div>
+  <a class="cta" href="mailto:hello@thechrismear.com">Get in touch</a>
+</section>
+
+<footer>
+  <div>© 2026 Chris Mear</div>
+  <div>thechrismear.com</div>
 </footer>
+
+</body>
+</html>
